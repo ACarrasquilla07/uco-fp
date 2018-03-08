@@ -6,7 +6,9 @@ case class EUR(value: Double) extends Currency
 case class COP(value: Double) extends Currency
 
 object Divisas {
-  def toCOP(c: Currency, trm: List[(Currency, Double)], func: Double => List[(Currency, Double)] => Double): Double = {
+  def toCOP(c: Currency,
+            trm: List[(Currency, Double)],
+            func: Double => List[(Currency, Double)] => Double): Double = {
     c match {
       case usd @ USD(v) => func(v)(trm)
       case eur @ EUR(v) => func(v)(trm)

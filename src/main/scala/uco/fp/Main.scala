@@ -10,8 +10,8 @@ object Main extends App {
 
   val y = (exercices.printer _ compose exercices.factorial _)(3)
 
-  //val z  = exercices.suma(3, _) //Currying function
-  //val z2 = z(6)                 //Continuation of function
+  val sumMethod = exercices.suma(6, _ : Int) //Currying function
+  val curryngFunction = sumMethod(4) //Continuation of function
 
   val xz = exercices.hof1(3, "factorial", exercices.factorial)
 
@@ -39,7 +39,7 @@ object Main extends App {
 
   println(s"Promedio recursivo lista ${class4.prom(Nil)}")
 
-  val mensaje  = class4.Mensaje3[Plano]("hola", 2)
+  val mensaje = class4.Mensaje3[Plano]("hola", 2)
   val mensaje2 = class4.Mensaje3[Plano]("", 2)
   println(s"MENSAJE1 $mensaje")
   println(s"MENSAJE2 $mensaje2")
@@ -49,9 +49,10 @@ object Main extends App {
   val clase5 = ExercicesClass5
 
   implicit val persona: Int = clase5.Person("Jefferson -The kid- Ossa", 24)
-  val suma1                 = clase5.sum1(1)
+  val suma1 = clase5.sum1(1)
 
-  implicit val person: clase5.Person = clase5.Person("Jefferson -The kid- Ossa", 24)
-  val suma2                          = clase5.sum2(2)(person)
+  implicit val person: clase5.Person =
+    clase5.Person("Jefferson -The kid- Ossa", 24)
+  val suma2 = clase5.sum2(2)(person)
 
 }

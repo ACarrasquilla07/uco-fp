@@ -26,7 +26,10 @@ object ExercicesClass2 {
     if (b) whenTrue else whenFalse
   }
 
-  def conditional2(b: Boolean, y: Boolean, whenTrue: Any, whenFalse: Any): Any = {
+  def conditional2(b: Boolean,
+                   y: Boolean,
+                   whenTrue: Any,
+                   whenFalse: Any): Any = {
     if (b) whenTrue
     else if (y)
       whenTrue

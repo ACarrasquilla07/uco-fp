@@ -2,11 +2,11 @@ package uco.fp
 
 object ExercicesClass5 {
 
-  def sum1: Int => Int => Int           = a => b => a + b
+  def sum1: Int => Int => Int = a => b => a + b
   def sum(a: String, b: String): String = a + b
   def sum(a: Int)(implicit b: Int): Int = a + b
 
-  implicit val i: Int             = "4"
+  implicit val i: Int = "4"
   implicit def toS: Int => String = _.toString
   implicit def toI: String => Int = java.lang.Integer.valueOf(_)
 
@@ -41,21 +41,24 @@ object ExercicesClass5 {
   object SumableOps {
     implicit object IntSumable extends Sumable[Int] {
       def sumar(a: Int, b: Int): Int = a + b
-      def zero: Int                  = 0
+      def zero: Int = 0
     }
     implicit object StringSumable extends Sumable[String] {
       def sumar(a: String, b: String): String = a + b
-      def zero: String                        = ""
+      def zero: String = ""
     }
     implicit object PersonaSumable extends Sumable[Person] {
-      def sumar(a: Person, b: Person): Person = Person("Juridica", 0, a.patrimonio + b.patrimonio)
-      override def zero: Person               = Person("Juridica", 0, 0)
+      def sumar(a: Person, b: Person): Person =
+        Person("Juridica", 0, a.patrimonio + b.patrimonio)
+      override def zero: Person = Person("Juridica", 0, 0)
     }
   }
 
   import SumableOps._
-  def sum[T](a: T, b: T)(implicit s: Sumable[T]): T = s.sumar(a, b)                      //Primera forma de escribirlo
-  def sum2[T: Sumable](a: T, b: T)                  = implicitly[Sumable[T]].sumar(a, b) //Segunda forma de escribirlo
+  def sum[T](a: T, b: T)(implicit s: Sumable[T]): T =
+    s.sumar(a, b) //Primera forma de escribirlo
+  def sum2[T: Sumable](a: T, b: T) =
+    implicitly[Sumable[T]].sumar(a, b) //Segunda forma de escribirlo
   //Use:
   sum(1, 2)
   sum("1", "2")

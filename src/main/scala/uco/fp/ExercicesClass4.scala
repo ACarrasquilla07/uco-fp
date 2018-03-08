@@ -3,7 +3,7 @@ package uco.fp
 import cats.data.Ior
 
 import scala.annotation.tailrec
-import scala.util.{ Failure, Success, Try }
+import scala.util.{Failure, Success, Try}
 
 object ExercicesClass4 {
 
@@ -78,18 +78,19 @@ object ExercicesClass4 {
   } yield c + c
 
   trait MensajeError { val error: String }
-  case class InvalidSha(error: String = "Invalid Sha")   extends MensajeError
+  case class InvalidSha(error: String = "Invalid Sha") extends MensajeError
   case class InvalidText(error: String = "Invalid Text") extends MensajeError
 
   sealed trait Estado
   trait Cifrado extends Estado
-  trait Plano   extends Estado
+  trait Plano extends Estado
 
   case class Mensaje3[S <: Estado](texto: String, sha: Int)
   object Mensaje3 {
-    def apply(texto: String, sha: Int): Either[MensajeError, Mensaje3[Plano]] = {
+    def apply(texto: String,
+              sha: Int): Either[MensajeError, Mensaje3[Plano]] = {
       for {
-        sha  <- validarSha(sha)
+        sha <- validarSha(sha)
         text <- validarTexto(texto)
       } yield new Mensaje3[Plano](text, sha)
     }
@@ -97,7 +98,8 @@ object ExercicesClass4 {
       if (sha % 2 != 0) Left(InvalidSha())
       else Right(sha)
     }
-    private[this] def validarTexto(texto: String): Either[MensajeError, String] = {
+    private[this] def validarTexto(
+        texto: String): Either[MensajeError, String] = {
       if (texto.isEmpty) Left(InvalidText())
       else Right(texto)
     }

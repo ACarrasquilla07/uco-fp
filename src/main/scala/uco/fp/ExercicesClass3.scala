@@ -16,7 +16,7 @@ object ExercicesClass3 {
 
   def fact0: PartialFunction[Int, Int] = { case 0 => 1 }
   def factR: PartialFunction[Int, Int] = { case n => n * factR(n - 1) }
-  def factC: Int => Int                = fact0 orElse factR
+  def factC: Int => Int = fact0 orElse factR
 
   def factO(x: Int): Int = {
     @tailrec
