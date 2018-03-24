@@ -10,7 +10,7 @@ object Main extends App {
 
   val y = (exercices.printer _ compose exercices.factorial _)(3)
 
-  val sumMethod = exercices.suma(6, _ : Int) //Currying function
+  val sumMethod = exercices.suma(6, _: Int) //Currying function
   val curryngFunction = sumMethod(4) //Continuation of function
 
   val xz = exercices.hof1(3, "factorial", exercices.factorial)
@@ -55,4 +55,10 @@ object Main extends App {
     clase5.Person("Jefferson -The kid- Ossa", 24)
   val suma2 = clase5.sum2(2)(person)
 
+  //Clase 7 Marzo/24/2018
+
+  val clase7 = ExercisesClass7
+  clase7.sumaFuturos
+  clase7.sumFuturosWithMap
+  println(s"${clase7.getOrchestator}")
 }
