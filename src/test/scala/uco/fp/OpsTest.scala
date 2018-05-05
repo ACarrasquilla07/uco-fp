@@ -1,13 +1,13 @@
 package uco.fp
 
-import org.scalatest.{ BeforeAndAfterAll, Matchers, WordSpec }
+import org.scalatest.{BeforeAndAfterAll, Matchers, WordSpec}
 
 class OpsTest extends WordSpec with Matchers with BeforeAndAfterAll {
 
   val intNumbers = Num
-  val strings    = Str
-  val lists      = Lst
-  val factorial  = ExercicesClass2
+  val strings = Str
+  val lists = Lst
+  val factorial = ExercicesClass2
 
   "Integer numbers" should {
     "be added with another number" in {
@@ -29,13 +29,20 @@ class OpsTest extends WordSpec with Matchers with BeforeAndAfterAll {
 
   "Lists" should {
     "be added with another list" in {
-      lists.add(List(1, 2, 3), List("uno", "dos", "tres")) shouldBe List(1, 2, 3, "uno", "dos", "tres")
+      lists.add(List(1, 2, 3), List("uno", "dos", "tres")) shouldBe List(1,
+                                                                         2,
+                                                                         3,
+                                                                         "uno",
+                                                                         "dos",
+                                                                         "tres")
     }
     "calculate its difference with other list" in {
       lists.subs(List(1, 2, 3), List(2, 3)) shouldBe List(1)
     }
     "return the first parameter list when its doesn't have a difference" in {
-      lists.subs(List(1, 2, 3), List("uno", "dos", "tres")) shouldBe List(1, 2, 3)
+      lists.subs(List(1, 2, 3), List("uno", "dos", "tres")) shouldBe List(1,
+                                                                          2,
+                                                                          3)
     }
   }
 
