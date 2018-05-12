@@ -19,15 +19,15 @@ trait SemigroupInstances {
   }
 
   implicit def optSG[A: Semigroup] = new Semigroup[Option[A]] {
-      def combine(x: Option[A], y: Option[A]): Option[A] =
-        (x,y) match {
-          case (Some(a), Some(b)) =>
-            Option(Semigroup[A].combine(a,b))
-          case (a @ Some(_), _) => a
-          case (_, b @ Some(_)) => b
-          case _ => None
-        }
-    }
+    def combine(x: Option[A], y: Option[A]): Option[A] =
+      (x, y) match {
+        case (Some(a), Some(b)) =>
+          Option(Semigroup[A].combine(a, b))
+        case (a @ Some(_), _) => a
+        case (_, b @ Some(_)) => b
+        case _                => None
+      }
+  }
 
   trait SemigroupSyntax {
     //La clase implicita agrega funciones donde no las habia
@@ -79,9 +79,12 @@ object ExercicesClass12 extends WordSpec with Matchers with BeforeAndAfterAll {
   def combine[T](a: T, b: T)(implicit s: Num[T]): T =
     s.combine(a, b)
 
+  val one: Option[Int] = Some(1)
+  val none: Option[Int] = None
+
   combine(1, 1) shouldBe 2
-  combine(Some(1), None) shouldBe Some(1)
-  combine(None, None) shouldBe None
-  combine(Some(1), Some(1)) shouldBe Some(1)
+  combine(one, none) shouldBe Some(1)
+  combine(none, none) shouldBe None
+  combine(one, one) shouldBe Some(1)
 
 }
