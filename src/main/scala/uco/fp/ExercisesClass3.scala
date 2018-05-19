@@ -2,7 +2,7 @@ package uco.fp
 
 import scala.annotation.tailrec
 
-object ExercicesClass3 {
+object ExercisesClass3 {
   def fact(n: Int): Int = n match {
     case 0 => 1
     case _ => n * fact(n - 1)

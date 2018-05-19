@@ -1,6 +1,6 @@
 package uco.fp
 
-object ExercicesClass2 {
+object ExercisesClass2 {
 
   def factorial(x: Int): Int = {
     if (x <= 1) {

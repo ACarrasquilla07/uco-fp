@@ -1,11 +1,9 @@
 package uco.fp
 
-import cats.data.Ior
-
 import scala.annotation.tailrec
 import scala.util.{Failure, Success, Try}
 
-object ExercicesClass4 {
+object ExercisesClass4 {
 
   case class A(a: Int, b: Int)
 

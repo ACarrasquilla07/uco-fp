@@ -1,6 +1,6 @@
 package uco.fp
 
-object ExercicesClass5 {
+object ExercisesClass5 {
 
   def sum1: Int => Int => Int = a => b => a + b
   def sum(a: String, b: String): String = a + b

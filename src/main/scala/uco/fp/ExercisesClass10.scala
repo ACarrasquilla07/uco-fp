@@ -1,6 +1,6 @@
 package uco.fp
 
-object ExercicesClass10 {
+object ExercisesClass10 {
 
   //Functors
   //https://github.com/debasishg/frdomain/blob/master/src/main/scala/frdomain/ch4/patterns/Functor.scala

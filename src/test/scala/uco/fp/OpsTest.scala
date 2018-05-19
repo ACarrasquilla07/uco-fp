@@ -7,7 +7,7 @@ class OpsTest extends WordSpec with Matchers with BeforeAndAfterAll {
   val intNumbers = Num
   val strings = Str
   val lists = Lst
-  val factorial = ExercicesClass2
+  val factorial = ExercisesClass2
 
   "Integer numbers" should {
     "be added with another number" in {

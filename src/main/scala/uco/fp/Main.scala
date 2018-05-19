@@ -1,10 +1,10 @@
 package uco.fp
 
-import uco.fp.ExercicesClass4.Plano
+import uco.fp.ExercisesClass4.Plano
 
 object Main extends App {
 
-  val exercices = ExercicesClass2
+  val exercices = ExercisesClass2
 
   val x = (exercices.factorial _ andThen exercices.printer _)(3)
 
@@ -20,7 +20,7 @@ object Main extends App {
 
   //Clase 3 Febrero/17/2018
 
-  val class3 = ExercicesClass3
+  val class3 = ExercisesClass3
 
   val z = class3.mcd(96, 135)
   println(s"MCD $z")
@@ -33,7 +33,7 @@ object Main extends App {
 
   //Clase 4 Febrero/24/2018
 
-  val class4 = ExercicesClass4
+  val class4 = ExercisesClass4
 
   println(s"Suma segura de lista ${class4.sumSafe((1 to 4).toList)}")
 
@@ -46,7 +46,7 @@ object Main extends App {
 
   //Clase 5 Marzo/03/2018
 
-  val clase5 = ExercicesClass5
+  val clase5 = ExercisesClass5
 
   implicit val persona: Int = clase5.Person("Jefferson -The kid- Ossa", 24)
   val suma1 = clase5.sum1(1)
